@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Page</title>
+</head>
+<body>
+    <div class="container">
+        <h2>ชำระเงินด้วย PromptPay</h2>
+        
+        <div class="content">
+            <div class="left-section">
+                <div class="details-section">
+                    <h3>รายละเอียดผู้จอง</h3>
+                    <p><strong>ชื่อ:</strong> {{ userDate.fristName }}</p>
+                    <p><strong>สกุล:</strong> {{ userDate.lastName }}</p>
+                    <p><strong>เบอร์โทรศัพท์:</strong> {{ userDate.phone }}</p>
+                    <p><strong>อีเมล์:</strong> {{ userDate.email }}</p>
+                </div>
+                <div class="details-section">
+                    <h3>รายละเอียดโต๊ะ</h3>
+                    <p><strong>ชื่อโต๊ะ:</strong> {{ tableDetail?.tableName }}</p>
+                    <p><strong>ประเภทโต๊ะ:</strong> {{ tableTypeData?.tablesTypeName }}</p>
+                    <p><strong>หมายเลขโต๊ะ:</strong> {{ tableDetail?.tableNumber }}</p>
+                    <p><strong>คำอธิบาย:</strong> {{ tableDetail?.tableDesc }}</p>
+                    <p><strong>ความจุ:</strong> {{ tableDetail?.capacity }}</p>
+                    <p><strong>หมายเหตุ:</strong> {{ tableDetail?.nots }}</p>
+                </div>
+            </div>
+
+            <div class="right-section">
+                <div class="details-section">
+                    <h3>รายละเอียดการจอง</h3>
+                    <p><strong>วันที่จอง:</strong> {{ reservationsDetail?.bookingDate | date: 'dd/MM/yyyy' }}</p>
+                    <p><strong>เวลาเริ่ม:</strong> {{ formatTime(reservationsDetail?.startTime) }}</p>
+                    <p><strong>เวลาสิ้นสุด:</strong> {{ formatTime(reservationsDetail?.endTime) }}</p>
+                </div>
+                <div class="total-price">
+                    <h3>สรุปรายการชำระเงิน</h3>
+                    <h2><strong>ยอดที่ต้องชำระ:</strong> {{ tableDetail?.price }} ฿</h2>
+                    <h3>เวลาที่เหลือ: <span id="countdown">{{ formatCountdownTime(countdownTimeInSeconds) }}</span></h3>
+                </div>
+                <form class="payment-form" (submit)="uploadFileToActivity()">
+                    <div class="qrcodepaym">
+                        <canvas #qrCanvas></canvas> 
+                    </div>
+                    <input type="file" (change)="handleFileInput($event)" />
+                    <div class="imgqrcode">
+                        <img *ngIf="qrCodeData" [src]="qrCodeData" alt="QR Code" width="300" height="300">
+                    </div>
+                    <button type="submit">อัพโหลดหลักฐานการโอน</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

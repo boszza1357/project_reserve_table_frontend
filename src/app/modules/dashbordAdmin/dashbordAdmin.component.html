@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="dashbordAdmin.component.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
+</head>
+<body>
+    <div class="container">
+       
+        <main class="main-content">
+            <header class="header">
+                <h1>ยินดีต้อนรับ, admin</h1>
+            </header>
+            <section class="cards">
+              
+                <div class="card info-card">
+                    <h3>Tables</h3>
+                    <div class="info-item">
+                        <i class="fas fa-check-circle text-success"></i>
+                        <p>โต๊ะว่าง: <span>{{ countStatus('1') }}</span></p>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-times-circle text-danger"></i>
+                        <p>มีปัญหา: <span>{{ countStatus('2') }}</span></p>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-broom text-warning"></i>
+                        <p>กำลังทำความสะอาด: <span>{{ countStatus('3') }}</span></p>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-table text-info"></i>
+                        <p>โต๊ะทั้งหมด: <span>{{ productList?.length }}</span></p>
+                    </div>
+                </div>
+            </section>
+            <section class="tables">
+                <h2>โต๊ะทั้งหมด</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ลำดับ</th>
+                            <th>รูปโต๊ะ</th>
+                            <th>ชื่อโต๊ะ</th>
+                            <th>หมายเลขโต๊ะ</th>
+                            <th>จำนวนที่นั่ง</th>
+                            <th>รายละเอียดประเภทโต๊ะ</th>
+                            <th>ราคา</th>
+                            <th>สถานนะ</th>
+                            <th>หมายเหตุ</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let product of productList; let i = index">
+                            <td>
+                                <div class="align-middle text-center">
+                                    {{i+1}}
+                                </div>
+                            </td>
+                            <td>
+                                <div class="d-flex px-2 py-1">
+                                    <div>
+                                        <img *ngFor="let productImg of product.imgList" [src]="productImg" class="avatar avatar-sm me-3 border-radius-lg" alt="product" width="80" height="120">
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="d-flex flex-column justify-content-center">
+                                    <h6 class="mb-0 text-sm">{{product.tableName}}</h6>
+                                    <p class="text-xs text-secondary mb-0">{{product.tableDesc}}</p>
+                                </div>
+                            </td>
+                            <td class="align-middle text-center text-sm">
+                                <span class="text-secondary text-xs font-weight-bold">{{product.tableNumber}}</span>
+                            </td>
+                            <td class="align-middle text-center text-sm">
+                                <span class="text-secondary text-xs font-weight-bold">{{product.capacity}}</span>
+                            </td>
+                            <td>
+                                <p class="text-xs font-weight-bold mb-0">{{product.productType ? product.productType[0].tablesTypeName : ''}}</p>
+                                <p class="text-xs text-secondary mb-0">{{product.productType ? product.productType[0].tablesTypeDesc : ''}}</p>
+                            </td>
+                            <td class="align-middle text-center text-sm">
+                                <span class="text-secondary text-xs font-weight-bold">{{product.price}} ฿</span>
+                            </td>
+                            <td class="align-middle text-center">
+                                <span *ngIf="product.status == '1'" class="badge badge-sm bg-gradient-success">
+                                    <i class="fas fa-check-circle"></i> ว่าง
+                                </span>
+                                <span *ngIf="product.status == '2'" class="badge badge-sm bg-gradient-danger">
+                                    <i class="fas fa-times-circle"></i> มีปัญหา
+                                </span>
+                                <span *ngIf="product.status == '3'" class="badge badge-sm bg-gradient-cleaning">
+                                    <i class="fas fa-broom"></i> กำลังทำความสะอาด
+                                </span>
+                            </td>
+                            <td class="align-middle text-center">
+                                <span class="text-secondary text-xs font-weight-bold">{{product.nots}}</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

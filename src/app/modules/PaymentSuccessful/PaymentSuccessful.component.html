@@ -1,0 +1,11 @@
+<div class="payment-successful">
+  <h2>การชำระเงินเสร็จสมบูรณ์</h2>
+  <i class="fa fa-check-circle"></i> <!-- ตัวอย่างไอคอนเชิงบวก -->
+
+  <div>
+  <p>จำนวนเงินที่ชำระ: {{ SlipData.data.amount.amount }} : {{SlipData.data.countryCode}}</p>
+  <p>เลขที่ใบเสร็จ: {{ SlipData.data.payload }}</p>
+  <p>อ้างอิง: {{ SlipData.data.transRef }}</p>
+  <p>  ขอบคุณที่ใช้บริการ   </p>
+  <button (click)="navigateToHome()">กลับสู่หน้าหลัก</button>
+</div>

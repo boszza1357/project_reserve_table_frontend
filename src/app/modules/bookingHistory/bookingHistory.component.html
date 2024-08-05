@@ -1,0 +1,59 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<div *ngIf="bookingHistoryDetail">
+  <table class="booking-history-table">
+    <thead>
+      <tr>
+        <th>Number</th>
+        <th>Table Information</th>
+        <th>Capacity</th>
+        <th>Booking Date</th>
+        <th>Status</th>
+        <th>Start Time</th>
+        <th>End Time</th>
+        <th>Payment Status</th>
+        <th>Create Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let booking of bookingHistoryDetail let i = index">
+        <td>
+          <div class="align-middle text-center">
+            {{i+1}}
+        </div>
+        </td>
+        <td>
+          <div>
+            <strong>{{ booking.table.tableName }}</strong>
+            <p>{{ booking.table.tableDesc }}</p>
+            <small>{{ booking.tableType.tablesTypeName }} - {{ booking.tableType.tablesTypeDesc }}</small>
+          </div>
+        </td>
+        <td>{{ booking.table.capacity }}</td>
+        <td>{{ booking.reservation.bookingDate | date: 'dd/MM/yyyy' }}</td>
+        <td>
+          <ng-container [ngSwitch]="booking.reservation.status">
+            <span *ngSwitchCase="1" class="status status-booked">
+              <i class="fas fa-check-circle"></i> จองแล้ว
+            </span>
+            <span *ngSwitchCase="2" class="status status-postponed">
+              <i class="fas fa-exclamation-circle"></i> เลื่อนการจอง
+            </span>
+          </ng-container>
+        </td>
+        <td>{{ formatTime(booking.reservation.startTime) }}</td>
+        <td>{{ formatTime(booking.reservation.endTime) }}</td>
+        <td>
+          <ng-container [ngSwitch]="booking.statusPayment">
+            <span *ngSwitchCase="1" class="status status-paid">
+              <i class="fas fa-dollar-sign"></i> ชำระเงินเรียบร้อย
+            </span>
+            <span *ngSwitchCase="2" class="status status-unpaid">
+              <i class="fas fa-times-circle"></i> ยังไม่ชำระเงิน
+            </span>
+          </ng-container>
+        </td>
+        <td>{{ booking.createDate | date: 'dd/MM/yyyy HH:mm' }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

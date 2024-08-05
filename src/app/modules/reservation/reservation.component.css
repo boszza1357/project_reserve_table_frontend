@@ -1,0 +1,131 @@
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(to bottom right, #ff7e5f, #feb47b);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.container {
+  display: flex;
+  width: 80%;
+  max-width: 1200px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 16px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+.left-column,
+.right-column {
+  padding: 20px;
+  flex: 1;
+}
+
+.left-column {
+  border-right: 1px solid #ccc;
+}
+
+.details {
+  margin-bottom: 20px;
+}
+
+.details p {
+  margin: 5px 0;
+}
+
+.details strong {
+  color: #333;
+}
+
+.images {
+  margin-bottom: 20px;
+}
+
+.image-list {
+  display: inline-block;
+}
+
+.table-image {
+  width: 200px;
+  height: 200px;
+  margin: 10px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: #666;
+}
+
+.form-group input {
+  width: calc(100% - 22px);
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #ff7e5f;
+}
+
+button {
+  width: 100%;
+  padding: 10px 20px;
+  background-color: #211e1e;
+  color: #FFF;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.buttonsumbit {
+  width: 100%;
+  padding: 10px 20px;
+  background-color: #24bd54;
+  color: #FFF;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #93c48f;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.time-slots-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.time-slot button {
+  padding: 10px;
+  margin: 5px 0;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.time-slot button.selected {
+  background-color: #56C596;
+  color: white;
+}

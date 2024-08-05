@@ -1,0 +1,59 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header bg-primary text-white">
+          <h4 class="mb-0">Manage Orders</h4>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-hover">
+              <thead class="thead-light">
+                <tr>
+                  <th>ผู้ใช้</th>
+                  <th>วันที่จอง</th>
+                  <th>เวลาใช้โต๊ะ</th>
+                  <th>เวลสิ้นสุด</th>
+                  <th>รายละเอียดโต๊ะ</th>
+                  <th>รายละเอียดประเภทโต๊ะ</th>
+                  <th>สถานะ</th>
+                  <th>วันที่ชำระ</th>
+                  <th>จัดการ</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let payment of paymentList">
+                  <td>{{ payment.user.fristName }} {{ payment.user.lastName }}</td>
+                  <td>{{ payment.reservation.bookingDate | date: 'dd/MM/yyyy' }}</td>
+                  <td>{{ formatTime(payment.reservation.startTime) }}</td>
+                  <td>{{ formatTime(payment.reservation.endTime) }}</td>
+                  <td>
+                    <strong>Name:</strong> {{ payment.table.tableName }}<br>
+                    <strong>Number:</strong> {{ payment.table.tableNumber }}<br>
+                    <strong>Capacity:</strong> {{ payment.table.capacity }}
+                  </td>
+                  <td>
+                    <strong>Type:</strong> {{ payment.tableType.tablesTypeName }}<br>
+                    <strong>Description:</strong> {{ payment.tableType.tablesTypeDesc }}
+                  </td>
+                  <td>
+                    <span *ngIf="payment.statusPayment == 1" class="badge badge-success">ชำระเงินสำเร็จ</span>
+                    <span *ngIf="payment.statusPayment != 1" class="badge badge-danger">ยังไม่ชำระเงิน</span>
+                    <br>
+                    {{ payment.pricePayment }} ฿
+                  </td>
+                  <td>{{ payment.createDate | date: 'dd/MM/yyyy HH:mm'}}</td>
+                  <td class="align-middle text-center">
+                    <button class="btn btn-danger btn-sm" (click)="onDeletePayment(payment.paymentId, payment.reservationId)">ลบ
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,22 @@
+<div class="container">
+  <h2>เลี่อนเวลาการจอง</h2>
+  <div class="card">
+    <div class="card-body">
+      <form [formGroup]="updateReservationForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="bookingDate">วันที่จอง</label>
+          <input type="date" id="bookingDate" class="form-control" formControlName="bookingDate" (change)="onDateChange()">
+        </div>
+        <div class="form-group">
+          <label for="timeSlot">เวลา</label>
+          <select id="timeSlot" class="form-control" formControlName="timeSlot">
+            <option *ngFor="let slot of availableTimeSlots" [value]="slot.startTime + '-' + slot.endTime">
+              {{ formatTime(slot.startTime) }} - {{ formatTime(slot.endTime) }}
+            </option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary">เลี่อนเวลาการจองโต๊ะ</button>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,117 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<div class="container">
+  <div class="col-md-12">
+      <div class="card">
+          <div class="card-body">
+              <div class="row">
+                  <div class="col-md-12">
+                      <h4>สินค้า</h4>
+                      <hr>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-md-12">
+                    <form [formGroup]="updateProductForm" (submit)="onSubmit()">
+                      <div class="form-group row">
+                        <label for="productTypeId" class="col-4 col-form-label">ประเภทสินค้า</label> 
+                        <div class="col-12">
+                          <select  class="custom-select" formControlName="tablesTypeId">
+                            <option *ngFor="let item of productTypeList" value="{{item.tablesTypeId}}">{{item.tablesTypeName}}</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="productName" class="col-4 col-form-label">ชื่อโต๊ะ</label> 
+                        <div class="col-12">
+                          <input formControlName="tableName"  placeholder="ชื่อสินค้า" class="form-control here"  type="text">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="productDesc" class="col-4 col-form-label">หมายเลขโต๊ะ</label> 
+                        <div class="col-12">
+                          <input formControlName="tableNumber" placeholder="รายละเอียดสินค้า" class="form-control here" type="text">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="productDesc" class="col-4 col-form-label">รายละเอียดโต๊ะ</label> 
+                        <div class="col-12">
+                          <input formControlName="tableDesc" placeholder="รายละเอียดสินค้า" class="form-control here" type="text">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="quantity" class="col-4 col-form-label">จำนวนที่นั่ง</label> 
+                        <div class="col-12">
+                          <input formControlName="capacity" placeholder="จำนวน" class="form-control here"  type="number">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="status" class="col-4 col-form-label">สถานะ</label>
+                        <div class="col-12">
+                          <select formControlName="status" class="form-control here">
+                            <option value="1">ว่าง</option>
+                            <option value="2">มีปัญหา</option>
+                            <option value="3">กำลังทำความสะอาด</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label class="col-4 col-form-label">สถานะปัจจุบัน</label>
+                        <div class="col-12">
+                          <div *ngIf="updateProductForm.get('status')?.value === '1'" class="status-badge bg-success">
+                            <i class="fas fa-check-circle"></i> ว่าง
+                          </div>
+                          <div *ngIf="updateProductForm.get('status')?.value === '2'" class="status-badge bg-danger">
+                            <i class="fas fa-times-circle"></i> มีปัญหา
+                          </div>
+                          <div *ngIf="updateProductForm.get('status')?.value === '3'" class="status-badge bg-cleaning">
+                            <i class="fas fa-broom"></i> กำลังทำความสะอาด
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="price" class="col-4 col-form-label">ราคา</label> 
+                        <div class="col-12">
+                          <input formControlName="price" step='0.01' placeholder="ราคา" class="form-control" type="number">
+                        </div>
+                      </div>
+                      
+                      <div class="form-group row">
+                        <label for="quantity" class="col-4 col-form-label">หมายเหตุ</label> 
+                        <div class="col-12">
+                          <input formControlName="nots" placeholder="ถ้าไม่มีอะไรไม่ต้องกรอก" class="form-control here"  type="number">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <div class="carousel-item">
+                          
+                          <div class="carousel-caption d-none d-md-block">
+                            <h5>...</h5>
+                            <p>...</p>
+                          </div>
+                        </div>
+                        
+                      </div>
+                      <div class="form-group row" *ngFor="let item of  ImageList">
+                        <img   [src]="item.value" class="d-block w-20 h-20" >
+                        <button type="button" class="btn-close" aria-label="Close" (click)="onDeleteFileChanged(item.key)" ><i class="fa-solid fa-xmark"></i></button>
+                      </div>
+                      
+                      
+                      <div class="form-group row">
+                        <label for="age" class="col-4 col-form-label">รูปสินค้า</label> 
+                        <div class="col-12">
+                          <input formControlName="files" #fileInput (change)="onFileChanged($event)"  placeholder="รูปสินค้า" class="form-control here"  type="file" multiple>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <div class="offset-5 col-12">
+                          <button name="submit" type="submit" class="btn btn-primary">Save Product</button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

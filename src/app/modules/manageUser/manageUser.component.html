@@ -1,0 +1,80 @@
+  <link rel="stylesheet" href="manageUser.component.css">
+  <div class="Background">
+<div class="container">
+  <div class="container-fluid py-4">
+    <div class="row">
+      <div class="col-12">
+        <div class="card my-4">
+          <div class="card-header p-0 position-relative mt-n4 z-index-2">
+            <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
+              <h6 class="text-white text-capitalize ps-3">ข้อมูลผู้ใช้ทั้งหมด</h6>
+            </div>
+          </div>
+          <div class="card-body px-0 pb-2">
+            <div class="table-responsive p-0">
+              <table class="table align-items-center mb-0">
+                <thead>
+                  <tr>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">#</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">รหัสผู้ใช้</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">รหัสผ่าน</th>
+                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">ชื่อ</th>
+                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">สกุล</th>
+                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">สถานนะ</th>
+                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">เบอร์</th>
+                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">อีเมล์</th>
+                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">อายุ</th>
+                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">เพศ</th>
+                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">จัดการ</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of userList; let i = index">
+                    <td>
+                      <div class="align-middle text-center">
+                        {{i+1}}
+                      </div>
+                    </td>
+                    <td class="align-middle text-center">
+                      <p class="text-xs font-weight-bold mb-0">{{item.userName}}</p>
+                    </td>
+                    <td class="align-middle text-center">
+                      <p class="text-xs font-weight-bold mb-0">{{item.password}}</p>
+                    </td>
+                    <td class="align-middle text-center">
+                      <span class="text-secondary text-xs font-weight-bold">{{item.fristName}}</span>
+                    </td>
+                    <td class="align-middle text-center">
+                      <span class="text-secondary text-xs font-weight-bold">{{item.lastName}}</span>
+                    </td>
+                    <td class="align-middle text-center text-sm">
+                      <span *ngIf="item.status == '1'" class="badge badge-sm bg-gradient-success">ปกติ</span>
+                      <span *ngIf="item.status != '1'" class="badge badge-sm bg-gradient-danger">ผิดปกติ</span>
+                    </td>
+                    <td class="align-middle text-center">
+                      <span class="text-secondary text-xs font-weight-bold">{{item.phone}}</span>
+                    </td>
+                    <td class="align-middle text-center">
+                      <p class="text-xs font-weight-bold mb-0">{{item.email}}</p>
+                    </td>
+                    <td class="align-middle text-center">
+                      <span class="text-secondary text-xs font-weight-bold">{{item.age}}</span>
+                    </td>
+                    <td class="align-middle text-center">
+                      <span class="text-secondary text-xs font-weight-bold">{{item.gender}}</span>
+                    </td>
+                    <td class="align-middle text-center">
+                      <button class="btn btn-warning" (click)="onUpdateUser(item.userId)">แก้ไข</button>
+                      <button class="btn btn-danger" (click)="onDeleteUser(item.userId)">ลบ</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

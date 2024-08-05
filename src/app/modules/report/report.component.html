@@ -1,0 +1,91 @@
+<div class="col-xl-12">
+  <div class="row">
+    <!-- Employee Report -->
+    <div class="col-md-4 col-6">
+      <div class="card">
+        <div class="card-header mx-4 p-3 text-center">
+          <div class="icon icon-shape icon-lg bg-gradient-primary shadow text-center border-radius-lg">
+            <i class="material-icons opacity-10">person</i>
+          </div>
+        </div>
+        <div class="card-body pt-0 p-3 text-center">
+          <h6 class="text-center mb-0">รายงาน : พนักงาน</h6>
+          <span class="text-xs">ดูรายละเอียดเกี่ยวกับพนักงาน</span>
+          <hr class="horizontal dark my-3">
+          <button type="button" class="btn btn-danger" (click)="downloadPdfCustomer()">
+            <i class="material-icons opacity-10">picture_as_pdf</i> PDF
+          </button>
+          <button type="button" class="btn btn-success" (click)="downloadExcelCustomer()">
+            <i class="material-icons opacity-10">report</i> Excel
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Table Report -->
+    <div class="col-md-4 col-6">
+      <div class="card">
+        <div class="card-header mx-4 p-3 text-center">
+          <div class="icon icon-shape icon-lg bg-gradient-primary shadow text-center border-radius-lg">
+            <i class="material-icons opacity-10">table_restaurant</i>
+          </div>
+        </div>
+        <div class="card-body pt-0 p-3 text-center">
+          <h6 class="text-center mb-0">รายงาน : โต๊ะ</h6>
+          <span class="text-xs">ดูรายละเอียดเกี่ยวกับโต๊ะ</span>
+          <hr class="horizontal dark my-3">
+          <button type="button" class="btn btn-danger" (click)="downloadPdfTabler()">
+            <i class="material-icons opacity-10">picture_as_pdf</i> PDF
+          </button>
+          <button type="button" class="btn btn-success" (click)="downloadExcelTable()">
+            <i class="material-icons opacity-10">report</i> Excel
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Reservation Report -->
+    <div class="col-md-4 col-6">
+      <div class="card">
+        <div class="card-header mx-4 p-3 text-center">
+          <div class="icon icon-shape icon-lg bg-gradient-primary shadow text-center border-radius-lg">
+            <i class="material-icons opacity-10">event_note</i>
+          </div>
+        </div>
+        <div class="card-body pt-0 p-3 text-center">
+          <h6 class="text-center mb-0">รายงาน : จอง</h6>
+          <span class="text-xs">ดูรายละเอียดเกี่ยวกับการจอง</span>
+          <hr class="horizontal dark my-3">
+          <button type="button" class="btn btn-danger" (click)="downloadPdfReservationsr()">
+            <i class="material-icons opacity-10">picture_as_pdf</i> PDF
+          </button>
+          <button type="button" class="btn btn-success" (click)="downloadExcelReservations()">
+            <i class="material-icons opacity-10">report</i> Excel
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Payment Report -->
+    <div class="col-md-4 col-6">
+      <div class="card">
+        <div class="card-header mx-4 p-3 text-center">
+          <div class="icon icon-shape icon-lg bg-gradient-primary shadow text-center border-radius-lg">
+            <i class="material-icons opacity-10">payments</i>
+          </div>
+        </div>
+        <div class="card-body pt-0 p-3 text-center">
+          <h6 class="text-center mb-0">รายงาน : จ่ายเงิน</h6>
+          <span class="text-xs">ดูรายละเอียดเกี่ยวกับการจ่ายเงิน</span>
+          <hr class="horizontal dark my-3">
+          <button type="button" class="btn btn-danger" (click)="downloadPdfPayment()">
+            <i class="material-icons opacity-10">picture_as_pdf</i> PDF
+          </button>
+          <button type="button" class="btn btn-success" (click)="downloadExcelPayment()">
+            <i class="material-icons opacity-10">report</i> Excel
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

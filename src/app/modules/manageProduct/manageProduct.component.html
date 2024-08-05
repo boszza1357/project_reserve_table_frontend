@@ -1,0 +1,94 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <div class="card my-4">
+        <div class="card-header p-0 position-relative mt-n4 z-index-2">
+          <div class="bg-gradient-primary shadow-primary border-radius-lg pt-3 pb-2">
+            <h6 class="text-white text-capitalize ps-3 my-2 text-center">จัดการโต๊ะ</h6>
+          </div>
+        </div>
+        <div class="mt-3">
+          <div class="row">
+            <div class="col-6 d-flex align-items-center">
+              <!-- Optional left section -->
+            </div>
+            <div class="col-6 text-end">
+              <a class="btn bg-gradient-success mb-0" [routerLink]="['/product']">
+                <i class="material-icons text-sm">add</i>เพิ่มสินค้า
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="card-body px-2 pb-2">
+          <div class="table-responsive p-0">
+            <table class="table align-items-center mb-0">
+              <thead>
+                <tr>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">รูปโต๊ะ</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">รายละเอียดสินค้า</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">หมายเลขโต๊ะ</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">จำนวนทีนั่ง</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">ประเภทสินค้า</th>
+                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">ราคา</th>
+                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">สถานะ</th>
+                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">หมายเหตุ</th>
+                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">ACTION</th>
+                  <th class="text-secondary opacity-7"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let product of productList">
+                  <td>
+                    <div class="d-flex px-2 py-1">
+                      <div>
+                        <img *ngFor="let productImg of product.imgList" [src]="productImg" class="avatar avatar-sm me-3 border-radius-lg" alt="product" width="80" height="120">
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="d-flex flex-column justify-content-center">
+                      <h6 class="mb-0 text-sm">{{product.tableName}}</h6>
+                      <p class="text-xs text-secondary mb-0">{{product.tableDesc}}</p>
+                    </div>
+                  </td>
+                  <td class="align-middle text-center text-sm">
+                    <span class="text-secondary text-xs font-weight-bold">{{product.tableNumber}}</span>
+                  </td>
+                  <td class="align-middle text-center text-sm">
+                    <span class="text-secondary text-xs font-weight-bold">{{product.capacity}}</span>
+                  </td>
+                  <td>
+                    <p class="text-xs font-weight-bold mb-0">{{product.productType ? product.productType[0].tablesTypeName : ''}}</p>
+                    <p class="text-xs text-secondary mb-0">{{product.productType ? product.productType[0].tablesTypeDesc : ''}}</p>
+                  </td>
+                  <td class="align-middle text-center text-sm">
+                    <span class="text-secondary text-xs font-weight-bold">{{product.price}}</span>
+                  </td>
+                  <td class="align-middle text-center">
+                    <span *ngIf="product.status == '1'" class="badge badge-sm bg-gradient-success">
+                      <i class="fas fa-check-circle"></i> ว่าง
+                    </span>
+                    <span *ngIf="product.status == '2'" class="badge badge-sm bg-gradient-danger">
+                      <i class="fas fa-times-circle"></i> มีปัญหา
+                    </span>
+                    <span *ngIf="product.status == '3'" class="badge badge-sm bg-gradient-cleaning">
+                      <i class="fas fa-broom"></i> กำลังทำความสะอาด
+                    </span>
+                  </td>
+                  <td class="align-middle text-center">
+                    <span class="text-secondary text-xs font-weight-bold">{{product.nots}}</span>
+                  </td>
+                  <td class="align-middle text-center">
+                    <button class="btn btn-warning btn-sm" (click)="onUpdateProduct(product.tablesId)">แก้ไข</button>
+                    <button class="btn btn-danger btn-sm" (click)="onDeleteProduct(product.tablesId)">ลบ</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

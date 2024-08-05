@@ -1,0 +1,53 @@
+.booking-history-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .booking-history-table th,
+  .booking-history-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .booking-history-table th {
+    background-color: #f2f2f2;
+    color: black;
+    font-weight: bold;
+  }
+  
+  .booking-history-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .booking-history-table tr:hover {
+    background-color: #ddd;
+  }
+  
+  .status {
+    display: flex;
+    align-items: center;
+  }
+  
+  .status i {
+    margin-right: 5px;
+  }
+  
+  .status-booked {
+    color: green;
+  }
+  
+  .status-postponed {
+    color: orange;
+  }
+  
+  .status-paid {
+    color: green;
+  }
+  
+  .status-unpaid {
+    color: red;
+  }
+  
+  

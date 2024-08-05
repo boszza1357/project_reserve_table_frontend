@@ -1,0 +1,64 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background: url('https://cdn.pixabay.com/photo/2016/06/03/14/31/dinner-1433494_1280.jpg') no-repeat center center fixed;
+    background-size: cover;
+  }
+  
+  .register-form {
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 2rem;
+    border-radius: 10px;
+    max-width: 500px;
+    margin: auto;
+    color: white;
+  }
+  
+  .form-group label {
+    color: white;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+  
+  .form-group i {
+    margin-right: 0.5rem;
+  }
+  
+  .form-control {
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    color: #333;
+  }
+  
+  .form-control:focus {
+    border-color: #ff9f43;
+    box-shadow: 0 0 5px rgba(255, 159, 67, 0.5);
+  }
+  
+  .btn-primary {
+    background-color: #ff9f43;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .btn-primary:hover {
+    background-color: #ff7f2a;
+  }
+  
+  .alert {
+    background-color: #ff6f61;
+    border-radius: 5px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .text-danger {
+    color: #ff6f61;
+  }
+  

@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="left-column">
+    <div class="details" *ngIf="tableDetails">
+      <h3>{{ tableDetails.tableName }}</h3>
+      <p>{{ tableDetails.tableDesc }}</p>
+      <p><strong>Table Number:</strong> {{ tableDetails.tableNumber }}</p>
+      <p><strong>Capacity:</strong> {{ tableDetails.capacity }}</p>
+      <p><strong>Price:</strong> {{ tableDetails.price }} ฿</p>
+      <p><strong>Notes:</strong> {{ tableDetails.notes }}</p>
+    </div>
+    <div class="details" *ngIf="tableTypeDetails">
+      <h4>Table Type: {{ tableTypeDetails.tablesTypeName }}</h4>
+      <p>{{ tableTypeDetails.tablesTypeDesc }}</p>
+    </div>
+    <div class="images" *ngIf="ImageList.length > 0">
+      <h4>Images</h4>
+      <div class="image-list" *ngFor="let image of ImageList">
+        <img [src]="image.value" alt="{{ image.key }}" class="table-image">
+      </div>
+    </div>
+  </div>
+  <div class="right-column">
+    <form [formGroup]="reservationForm" (ngSubmit)="onSubmit()" #bookingForm="ngForm">
+      <div class="form-group">
+        <label for="bookingDate">Booking Date:</label>
+        <input type="date" id="bookingDate" formControlName="bookingDate" [(ngModel)]="reservationDate" (change)="loadBookedSlots(tableId)" required>
+      </div>
+      <div class="form-group time-slots-container">
+        <label>Available Time Slots:</label>
+        <div *ngFor="let slot of timeSlots" class="time-slot">
+          <button type="button" [ngClass]="{'selected': isSelected(slot), 'disabled': !isSlotAvailable(slot)}" (click)="selectSlot(slot)" [disabled]="!isSlotAvailable(slot)">
+            {{ formatTime(slot.startTime) }} - {{ formatTime(slot.endTime) }}
+          </button>
+        </div>
+      </div>
+      <button class="buttonsubmit" type="submit" [disabled]="!bookingForm.form.valid">Book Now</button>
+    </form>
+  </div>
+</div>

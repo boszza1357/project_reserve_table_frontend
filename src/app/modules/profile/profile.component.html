@@ -1,0 +1,66 @@
+<form [formGroup]="updateForm" (ngSubmit)="onSubmit()">
+  <div class="container col-xl-10 col-xxl-8 px-4 py-5">
+      <div class="col-lg-7 text-center text-lg-start">
+          <h1 class="display-4 fw-bold lh-1 mb-3">โปรไฟล์</h1>
+          <p class="col-lg-10 fs-4">{{title}}</p>
+      </div>
+      <div class="form-group input-group">
+          <div class="input-group-prepend">
+              <span class="input-group-text"> <i class="fa fa-id-badge"></i> </span>
+          </div>
+          <input formControlName="fristName" class="form-control" placeholder="First name" type="text">
+      </div> 
+      <div class="form-group input-group">
+          <div class="input-group-prepend">
+              <span class="input-group-text"> <i class="fa fa-id-badge"></i> </span>
+          </div>
+          <input formControlName="lastName" class="form-control" placeholder="Last name" type="text">
+      </div> 
+      <div class="form-group input-group">
+          <div class="input-group-prepend">
+              <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
+          </div>
+          <input formControlName="phone" class="form-control" placeholder="Phone number" type="text">
+      </div>
+      <div class="form-group input-group">
+          <div class="input-group-prepend">
+              <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+          </div>
+          <input formControlName="email" class="form-control" placeholder="Email" type="email" readonly>
+      </div>
+      <div class="form-group input-group">
+          <div class="input-group-prepend">
+              <span class="input-group-text"> <i class="fa fa-birthday-cake"></i> </span>
+          </div>
+          <input formControlName="age" class="form-control" placeholder="Age" type="text">
+      </div> 
+      <div class="form-group input-group">
+          <div class="input-group-prepend">
+              <span class="input-group-text"> <i class="fa fa-building"></i> </span>
+          </div>
+          <select class="form-control" formControlName="roleId" readonly>
+              <option *ngFor="let item of roleList" value="{{item.id}}"[disabled]="true">{{item.roleName}}</option>           
+           </select>
+      </div> 
+      <div class="form-group input-group">
+          <div class="input-group-prepend">
+              <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+          </div>
+          <input formControlName="userName" class="form-control" placeholder="Username" type="text" readonly>
+      </div> 
+      <div class="form-group input-group">
+          <div class="input-group-prepend">
+              <span class="input-group-text"> <i class="fa fa-venus-mars"></i> </span>
+          </div>
+          
+          <select class="form-control" formControlName="gender">
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+              <option value="other">Other</option>
+          </select>
+      </div>                                 
+      <div class="form-group">
+          <button type="submit" class="btn btn-primary btn-block"> Create Account </button>
+      </div>      
+  </div>                                                             
+</form>

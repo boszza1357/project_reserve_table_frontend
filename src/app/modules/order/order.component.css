@@ -1,0 +1,68 @@
+.table {
+    width: 100%;
+    margin-bottom: 1rem;
+    color: #212529;
+    border-collapse: collapse;
+  }
+  
+  .table th,
+  .table td {
+    padding: 0.75rem;
+    vertical-align: top;
+    border-top: 1px solid #dee2e6;
+  }
+  
+  .table thead th {
+    vertical-align: bottom;
+    border-bottom: 2px solid #dee2e6;
+  }
+  
+  .table-hover tbody tr:hover {
+    color: #212529;
+    background-color: rgba(0, 0, 0, 0.075);
+  }
+  
+  .table-responsive {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .card {
+    margin-top: 20px;
+  }
+  
+  .card-header {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 15px;
+    border-bottom: 1px solid #007bff;
+  }
+  
+  .card-body {
+    padding: 15px;
+  }
+  
+  .table thead th {
+    background-color: #f8f9fa;
+  }
+  
+  .badge {
+    font-size: 0.875rem;
+    padding: 0.25em 0.4em;
+    border-radius: 0.25rem;
+    display: inline-block;
+    text-align: center;
+  }
+  
+  .badge-success {
+    background-color: #28a745;
+    color: #fff;
+  }
+  
+  .badge-danger {
+    background-color: #dc3545;
+    color: #fff;
+  }
+  

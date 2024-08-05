@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="login.component.css">
+</head>
+<body>
+
+    <div class="login-box">
+        <h2>Login</h2>
+        
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+          <div class="user-box" >
+            <input type="text" formControlName="userName" required="">
+            <label>Username</label>
+          </div>
+          
+          <div class="user-box">
+            <input type="password" formControlName="password" required="">
+            <label>Password</label>
+          </div>  
+          
+          <button type="submit">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            Submit
+          </button>
+          
+        </form>
+
+      </div>
+    
+</body>
+</html>

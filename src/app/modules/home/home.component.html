@@ -1,0 +1,23 @@
+<body>
+  <h2>Available Tables</h2>
+  <br>
+  <div class="tables-container">
+    <div class="table-card" *ngFor="let table of productList">
+      <div class="table-images">
+        <img *ngFor="let img of table.imgList" [src]="img" alt="Table Image">
+      </div>
+      <h3>{{ table.tableName }}</h3>
+      <h4>Capacity: {{ table.capacity }}</h4>
+      <h1>Price: {{ table.price }} ฿</h1>
+      <p>Type: {{ table.productType[0]?.tablesTypeName }}</p>
+      <p>Description: {{ table.productType[0]?.tablesTypeDesc }}</p>
+      <p>Notes: {{ table.nots }}</p>
+      <button 
+        [ngClass]="{'disabled-button': table.status == 2, 'enabled-button': table.status != 2}" 
+        [disabled]="table.status == 2" 
+        (click)="onReservation(table.tablesId, table.tablesTypeId)">
+        {{ table.status == 2 ? 'จองไม่ได้' : 'เลือกรอบจอง' }}
+      </button>
+    </div>
+  </div>
+</body>

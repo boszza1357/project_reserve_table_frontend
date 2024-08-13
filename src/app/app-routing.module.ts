@@ -20,6 +20,7 @@ import { UpdateReservationComponent } from './modules/updateReservation/updateRe
 import { OrderComponent } from './modules/order/order.component';
 import { BookingHistoryComponent } from './modules/bookingHistory/bookingHistory.component';
 import { HelloworldComponent } from './modules/helloworld/helloworld.component';
+import { ManageTypeProductComponent } from './modules/manageTypeProduct/manageTypeProduct.component';
 
 const routes: Routes = [
   {
@@ -82,6 +83,9 @@ const routes: Routes = [
     },{
       path: 'helloworld',
       component: HelloworldComponent
+    },{
+      path: 'mange-type-product',
+      component: ManageTypeProductComponent
     }]
   }
 ];

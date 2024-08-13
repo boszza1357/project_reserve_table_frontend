@@ -25,6 +25,7 @@ import { ManageReservationComponent } from 'src/app/modules/manageReservation/ma
 import { UpdateReservationComponent } from 'src/app/modules/updateReservation/updateReservation.component';
 import { OrderComponent } from 'src/app/modules/order/order.component';
 import { BookingHistoryComponent } from 'src/app/modules/bookingHistory/bookingHistory.component';
+import { ManageTypeProductComponent } from 'src/app/modules/manageTypeProduct/manageTypeProduct.component';
 
 @NgModule({
   imports: [
@@ -56,7 +57,8 @@ import { BookingHistoryComponent } from 'src/app/modules/bookingHistory/bookingH
     PaymentSuccessfulComponent,
     UpdateReservationComponent,
     OrderComponent,
-    BookingHistoryComponent
+    BookingHistoryComponent,
+    ManageTypeProductComponent
     
   ]
 })

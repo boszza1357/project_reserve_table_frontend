@@ -74,12 +74,32 @@ export class CallserviceService {
   }
 
     // api Type Table
+
+  getProductByTableTypeSave(data : any) : Observable<any>{
+    const body = JSON.stringify(data);
+    return this.http.post<any>(API_ENDPOINT.concat('/tableType/saveTypeTable'),body,httpOptions)
+  }
+
   getProductTypeAll() : Observable<any> {
     return this.http.get(API_ENDPOINT.concat('/table/getTableTypeAll'));
   }
+
   getProductByTableTypeId(tableTypeId: any): Observable<any> {
     return this.http.get(API_ENDPOINT.concat('/table/getTableTypeById?tableTypeId=' + tableTypeId));
   }
+
+  updateProductType(data : any,tableTypeId : any): Observable<any>{
+    const body = JSON.stringify(data)
+    return this.http.put(API_ENDPOINT.concat('/tableType/update/'+tableTypeId),body,httpOptions)
+  }
+
+  deleteProductTableType (tableTypeId : any ) : Observable<any>{
+    return this.http.delete(API_ENDPOINT.concat('tableType/delete?tableTypeId='+tableTypeId ))
+  }
+
+
+
+
 
   // ลบ สินค้า
   deleteProduct(tableId : any) : Observable<any> {
@@ -190,6 +210,8 @@ export class CallserviceService {
   bookingHistroy(userId: any): Observable<any> {
     return this.http.get(API_ENDPOINT.concat('/payment/getUserByBooking?userId=' + userId));
   }
+
+
 
 }
 
